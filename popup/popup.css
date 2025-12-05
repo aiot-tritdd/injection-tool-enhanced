@@ -1,6 +1,14 @@
+body {
+  width: 540px;
+  max-height: 600px;
+  overflow-y: auto;
+  margin: 0;
+  padding: 0;
+}
+
 #mainfrom
 {
-  width: 520px;
+  width: calc(100% - 40px);
   margin-left: 20px;
   margin-top: 20px;
   margin-right: 20px;
@@ -115,8 +123,26 @@ button{
   margin: 0 20px 20px 20px;
 }
 
+.scraped-items-buttons {
+  display: flex;
+  gap: 10px;
+  position: relative;
+  z-index: 10;
+}
+
+.scraped-items-buttons button {
+  flex: 1;
+  white-space: nowrap;
+  font-weight: 600;
+  position: relative;
+  z-index: 11;
+}
+
 #btnShowScrapedItems {
-  width: 100%;
+  margin-left: 0;
+}
+
+#btnClearStorage {
   margin-left: 0;
 }
 
@@ -217,16 +243,44 @@ button{
 .no-items-message {
   text-align: center;
   padding: 20px;
-  color: #6c757d;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
   font-style: italic;
+  font-size: 14px;
+  backdrop-filter: blur(5px);
+}
+
+.clear-success-message {
+  text-align: center;
+  padding: 20px;
+  color: #fff;
+  background: rgba(40, 167, 69, 0.9);
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 16px;
+  backdrop-filter: blur(5px);
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .scraped-items-error {
-  background: #f8d7da;
+  background: rgba(248, 215, 218, 0.95);
   color: #721c24;
   padding: 10px;
   border-radius: 4px;
   margin-top: 10px;
+  backdrop-filter: blur(5px);
 }
 
 /* Theme Switcher Styles */

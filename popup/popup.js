@@ -446,6 +446,69 @@ function renderScrapedItems(items) {
   });
 }
 
+// Function to clear scraped items from Local Storage
+function clearScrapedStorage() {
+  if (!confirm('Are you sure you want to clear bc_items from Local Storage?')) {
+    return;
+  }
+
+  browser.tabs.query({active: true, currentWindow: true}, function (tabs) {
+    if(!tabs[0]) {
+      alert('No active tab found');
+      return;
+    }
+
+    // Execute script in the page to remove bc_items from localStorage
+    browser.scripting.executeScript(
+      {
+        target: {tabId: tabs[0].id},
+        func: function () {
+          try {
+            localStorage.removeItem('bc_items');
+            return {success: true};
+          } catch(e) {
+            return {error: e.message};
+          }
+        },
+      },
+      function (results) {
+        if(browser.runtime.lastError) {
+          alert('Error accessing page: ' + browser.runtime.lastError.message);
+          return;
+        }
+
+        if(!results || !results[0]) {
+          alert('Could not clear storage');
+          return;
+        }
+
+        const data = results[0].result;
+
+        if(data && data.error) {
+          alert('Error clearing localStorage: ' + data.error);
+          return;
+        }
+
+        // Show success message in the list
+        const container = $('#scrapedItemsContainer');
+        const list = $('#scrapedItemsList');
+
+        container.show();
+        list.html('<div class="clear-success-message">✓ Storage cleared successfully!</div>');
+        $('#itemCount').text('0');
+
+        // Hide the message after 2 seconds
+        setTimeout(function() {
+          list.html('<div class="no-items-message">No scraped items found in bc_items</div>');
+          setTimeout(function() {
+            container.hide();
+          }, 500);
+        }, 2000);
+      }
+    );
+  });
+}
+
 $(function () {
   $('#chkStatus').change(function () {
     var status = $(this).is(':checked');
@@ -497,6 +560,10 @@ $(function () {
     // Show Scraped Items button handler
     $('#btnShowScrapedItems').on('click', function () {
       displayScrapedItems();
+    }),
+    // Clear Storage button handler
+    $('#btnClearStorage').on('click', function () {
+      clearScrapedStorage();
     }),
     // Theme Switcher handlers
     $('#btnThemeSwitcher').on('click', function(e) {
