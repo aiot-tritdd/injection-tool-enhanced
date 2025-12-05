@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="lib/bootstrap/bootstrap.min.css" />
+  <link rel="stylesheet" href="lib/mCustomScrollbar/jquery.mCustomScrollbar.min.css" />
+  <link rel="stylesheet" href="popup.css" />
+
+  <script src="lib/jquery-3.4.1.min.js"></script>
+  <script src="lib/bootstrap/bootstrap.min.js"></script>
+  <script src="lib/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script src="popup.js"></script>
+</head>
+
+<body>
+  <!-- Theme Switcher -->
+  <div class="theme-switcher">
+    <button type="button" id="btnThemeSwitcher" class="theme-btn" title="Switch Theme">
+      <span class="theme-icon">🌸</span>
+    </button>
+    <div class="theme-dropdown" id="themeDropdown" style="display: none;">
+      <button type="button" class="theme-option" data-theme="summer">☀️ Summer</button>
+      <button type="button" class="theme-option" data-theme="autumn">🍂 Autumn</button>
+      <button type="button" class="theme-option" data-theme="winter">❄️ Winter</button>
+      <button type="button" class="theme-option" data-theme="spring">🌸 Spring</button>
+      <button type="button" class="theme-option" data-theme="christmas">🎄 Christmas</button>
+    </div>
+  </div>
+
+  <form id="mainfrom">
+    <fieldset>
+      <legend>Inject JS</legend>
+      <div class="input-group input-group-sm status-area">
+        <div class="btn-group-toggle" data-toggle="buttons">
+          <label id="statusWrap" class="btn btn-success active">
+            <input type="checkbox" autocomplete="off" id="chkStatus" name="chkStatus">
+            <span id="lbStatus">Enable</span>
+          </label>
+        </div>
+      </div>
+      <label id="disablePrdWrap">
+        <input type="checkbox" autocomplete="off" id="disablePRD" name="disablePRD">
+        Disable current PRD - bc, mc
+      </label>
+      <label id="disablePrdGWrap">
+        <input type="checkbox" autocomplete="off" id="disableGPRD" name="disableGPRD">
+        Disable current PRD - gdxc
+      </label>
+      <label id="disableSandboxWrap">
+        <input type="checkbox" autocomplete="off" id="disableSandbox" name="disableSandbox">
+        Disable current SANDBOX - bc, mc
+      </label>
+      <label id="disableSandboxGWrap">
+        <input type="checkbox" autocomplete="off" id="disableGSandbox" name="disableGSandbox">
+        Disable current SANDBOX - gdxc
+      </label>
+      <div class="detail-title">Inject JavaScript</div>
+      <div class="url-input-area">
+        <div class="input-group input-group-sm">
+          <input id="txtDomain" type="text" class="form-control" placeholder="Add domain..."><br>
+        </div>
+        <div class="input-group input-group-sm">
+          <input id="txtJSPath" type="text" class="form-control" placeholder="Add JS path..." value="https://connect.dejima.local:9000/main.js?exclude_c=tw_id"><br>
+        </div>
+        <br>
+        <div class="input-group input-group-sm">
+          <span>
+            <button id="btnAdd" class="btn btn-primary" type="button">Add</button>
+          </span>
+        </div>
+      </div>
+
+      <br>
+
+      <div class="list-domain">
+      </div>
+
+      <div class="float-right">
+        <button id="btnReset" type="button" class="btn btn-secondary btn-sm pull-right">Reset</button>
+        <button id="btnCancel" type="button" class="btn btn-secondary btn-sm pull-right">Cancel</button>
+        <button id="btnSave" type="button" class="btn btn-success btn-sm pull-right">Save</button>
+      </div>
+    </fieldset>
+  </form>
+
+  <hr style="margin: 15px 0;">
+
+  <!-- Scraped Items Viewer Section -->
+  <div class="scraped-items-section">
+    <button id="btnShowScrapedItems" type="button" class="btn btn-info btn-block">
+      🛒 Show Scraped Items
+    </button>
+
+    <div id="scrapedItemsContainer" style="display: none; margin-top: 15px;">
+      <div class="scraped-items-header">
+        <strong>bc_items from Local Storage</strong>
+        <span id="itemCount" class="badge badge-primary">0</span>
+      </div>
+      <div id="scrapedItemsList" class="scraped-items-list"></div>
+    </div>
+  </div>
+</body>
+
+</html>

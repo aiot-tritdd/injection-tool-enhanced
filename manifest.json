@@ -1,0 +1,50 @@
+{
+  "name": "InjectJS - Enhanced",
+  "manifest_version": 3,
+  "version": "1.0",
+  "description": "Using for inject javascript testing",
+  "permissions": [
+    "activeTab",
+    "declarativeNetRequest",
+    "declarativeNetRequestFeedback",
+    "webRequest",
+    "tabs",
+    "scripting",
+    "alarms",
+    "notifications",
+    "storage",
+    "webNavigation"
+  ],
+  "host_permissions": ["http://*/*", "https://*/*"],
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "run_at": "document_end",
+      "js": ["inject.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [ "load.js" ],
+      "matches": ["http://*/*", "https://*/*"]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Inject js to page",
+    "default_popup": "popup/popup.html"
+  },
+  "content_security_policy": {
+    "extension_pages": "default-src 'self'; connect-src * data: blob: filesystem:; style-src 'self' data: 'unsafe-inline'; img-src 'self' data: https:; frame-src 'self' data:; font-src 'self' data:; media-src * data: blob: filesystem:;script-src 'self' 'wasm-unsafe-eval'; script-src-elem 'self' 'wasm-unsafe-eval'"
+  },
+  "declarative_net_request" : {
+    "rule_resources" : []
+  },
+    "icons": {
+    "16": "assets/icons/injection-16.png",
+    "32": "assets/icons/injection-32.png",
+    "128": "assets/icons/injection-128.png"
+  }
+}
