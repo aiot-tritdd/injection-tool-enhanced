@@ -342,22 +342,6 @@ function renderScrapedItems(items) {
       '      <div class="scraped-item-price">¥' +
       (item.price || '0') +
       '</div>';
-    html += '      <div class="scraped-item-meta">';
-    html += '        ' + (item.seller || 'Unknown Seller');
-    if(item.quantity) {
-      html += ' • Qty: ' + item.quantity;
-    }
-    // Stock badges
-    if(item.has_stock) {
-      html += ' • <span style="color: #28a745; font-weight: 600;">✓ In Stock</span>';
-    }
-    else {
-      html += ' • <span style="color: #dc3545; font-weight: 600;">✗ Out of Stock</span>';
-    }
-    if(item.is_limited) {
-      html += ' • <span style="color: #dc3545; font-weight: 600;">⚠ Limited</span>';
-    }
-    html += '      </div>';
     html += '    </div>';
     html += '  </div>';
 
@@ -373,18 +357,41 @@ function renderScrapedItems(items) {
     html += '  <div class="scraped-item-details">';
     html += '    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px;">';
 
+    // Seller info
+    if(item.seller) {
+      html += '      <div class="scraped-item-details-row"><strong>Seller:</strong> ' + item.seller + '</div>';
+    }
+    if(item.seller_id !== undefined) {
+      html += '      <div class="scraped-item-details-row"><strong>Seller ID:</strong> ' + item.seller_id + '</div>';
+    }
+
+    // Stock status
+    if(item.has_stock !== undefined) {
+      const stockText = item.has_stock ? '<span style="color: #28a745;">✓ In Stock</span>' : '<span style="color: #dc3545;">✗ Out of Stock</span>';
+      html += '      <div class="scraped-item-details-row"><strong>Stock:</strong> ' + stockText + '</div>';
+    }
+    if(item.is_limited !== undefined) {
+      const limitedText = item.is_limited ? '<span style="color: #dc3545;">⚠ Yes</span>' : 'No';
+      html += '      <div class="scraped-item-details-row"><strong>Limited:</strong> ' + limitedText + '</div>';
+    }
+
+    // Quantity info
+    if(item.quantity) {
+      html += '      <div class="scraped-item-details-row"><strong>Quantity:</strong> ' + item.quantity + '</div>';
+    }
+    if(item.max_quantity) {
+      html += '      <div class="scraped-item-details-row"><strong>Max Qty:</strong> ' + item.max_quantity + '</div>';
+    }
+
+    // Code and service
     if(item.code) {
       html += '      <div class="scraped-item-details-row"><strong>Code:</strong> ' + item.code + '</div>';
     }
     if(item.service_type) {
       html += '      <div class="scraped-item-details-row"><strong>Service:</strong> ' + item.service_type + '</div>';
     }
-    if(item.seller_id) {
-      html += '      <div class="scraped-item-details-row"><strong>Seller ID:</strong> ' + item.seller_id + '</div>';
-    }
-    if(item.max_quantity) {
-      html += '      <div class="scraped-item-details-row"><strong>Max Qty:</strong> ' + item.max_quantity + '</div>';
-    }
+
+    // Other fields
     if(item.has_option_stock !== undefined) {
       html += '      <div class="scraped-item-details-row"><strong>Has Options:</strong> ' + (item.has_option_stock ? 'Yes' : 'No') + '</div>';
     }
@@ -395,6 +402,11 @@ function renderScrapedItems(items) {
       html += '      <div class="scraped-item-details-row" style="grid-column: 1 / -1;"><strong>Categories:</strong> ' + item.category_ids.join(', ') + '</div>';
     }
 
+    // Image link (full width)
+    if(item.image) {
+      html += '      <div class="scraped-item-details-row" style="grid-column: 1 / -1;"><strong>Image:</strong> <a href="' + item.image + '" class="scraped-item-url" target="_blank" style="word-break: break-all;">' + item.image + '</a></div>';
+    }
+
     html += '    </div>';
 
     // Variations (Collapsible)
@@ -403,7 +415,7 @@ function renderScrapedItems(items) {
       html += '      <div class="variations-toggle" data-index="' + index + '" style="cursor: pointer; display: flex; align-items: center; justify-content: space-between; padding: 6px 8px; background: #f8f9fa; border-radius: 4px; font-weight: 600; user-select: none;">';
       html += '        <span><span class="toggle-icon" style="display: inline-block; width: 12px;">▶</span> Variations (' + item.variations.length + ')</span>';
       html += '      </div>';
-      html += '      <div class="variations-content" style="display: none; margin-top: 8px; padding: 8px; background: #f8f9fa; border-radius: 4px;">';
+      html += '      <div class="variations-content" style="display: none; margin-top: 8px; padding: 8px; background: #f8f9fa; border-radius: 4px; max-height: 220px; overflow-y: auto;">';
 
       item.variations.forEach(function (variation, vIndex) {
         html += '        <div style="padding: 6px 8px; margin-bottom: 4px; background: white; border-radius: 4px; display: flex; gap: 8px; font-size: 13px;">';
