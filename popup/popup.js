@@ -379,7 +379,7 @@ function renderScrapedItems(items) {
     if(item.quantity) {
       html += '      <div class="scraped-item-details-row"><strong>Quantity:</strong> ' + item.quantity + '</div>';
     }
-    if(item.max_quantity) {
+    if('max_quantity' in item) {
       html += '      <div class="scraped-item-details-row"><strong>Max Qty:</strong> ' + item.max_quantity + '</div>';
     }
 
