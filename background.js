@@ -20,7 +20,7 @@ chrome.action.onClicked.addListener(async (e) => {
       await initStorageCache;
     } catch (e) {}
   }),
-  chrome.webNavigation.onCompleted.addListener(),
+  // chrome.webNavigation.onCompleted.addListener(), // DISABLED - was called with no callback
   chrome.storage.onChanged.addListener((e, t) => {
     if ('sync' === t && e.options?.newValue) {
       let t = Boolean(e.options.newValue.debug);

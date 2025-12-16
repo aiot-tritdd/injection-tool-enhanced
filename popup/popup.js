@@ -200,7 +200,11 @@ function saveRule(closeWindow = false) {
 }
 
 browser.tabs.query({currentWindow: true, active: true}, function (tabs) {
-  browser.tabs.sendMessage(tabs[0].id, {type: 'getDomain'});
+  if (tabs[0] && tabs[0].id && !tabs[0].url?.startsWith('chrome://')) {
+    browser.tabs.sendMessage(tabs[0].id, {type: 'getDomain'}).catch(() => {
+      // Silently ignore - content script not running on this page
+    });
+  }
 });
 
 // Theme Management Functions
