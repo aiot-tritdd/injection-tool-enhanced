@@ -4,13 +4,6 @@ function initializeLoad() {
     (console.log('Run init - load.js'), document.currentScript.getAttribute('jsPath'))
   ) {
     document.currentScript.getAttribute('jsPath').split(';').forEach(path => {
-      // Skip if path contains 'dejima.local' and we can't reach it
-      if (path.includes('dejima.local')) {
-        console.warn('[JS-Injection] Skipping local dev URL:', path);
-        console.warn('[JS-Injection] If you want to use local dev, make sure the server is running!');
-        return; // Skip this path for now
-      }
-
       var scriptElement = document.createElement('script');
       scriptElement.setAttribute('charset', 'UTF-8');
 
