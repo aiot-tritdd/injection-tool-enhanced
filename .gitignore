@@ -104,8 +104,3 @@ dist
 .tern-port
 .claude/
 .DS_Store
-
-# Library files
-lib/
-popup/lib/
-**/lib/
