@@ -1,5 +1,5 @@
 body {
-  width: 750px;
+  width: 600px; /* Decreased by 20% */
   max-height: 800px;
   overflow-y: auto;
   margin: 0;
@@ -71,10 +71,17 @@ button{
 }
 .list-url .close{
   position: relative;
-  margin: 0px 0px 0px 0px;
-  width: 30px;
-  left: 10px;
+  margin: 0;
+  width: 16px; /* Further reduced */
+  height: 16px;
+  line-height: 16px;
+  font-size: 14px; /* Smaller font */
+  left: 5px;
   padding: 0;
+  opacity: 0.5;
+}
+.list-url .close:hover {
+  opacity: 1;
 }
 .list-url .mCSB_scrollTools{
   left: 260px;
@@ -93,11 +100,20 @@ button{
 }
 .list-items .close{
   position: relative;
-  margin: 0px 0px 0px 0px;
-  width: 30px;
-  left: 10px;
+  margin: 0;
+  width: 16px; /* Further reduced */
+  height: 16px;
+  line-height: 16px;
+  font-size: 14px;
+  left: 5px;
   padding: 0;
+  opacity: 0.5;
 }
+.list-items .close:hover {
+  opacity: 1;
+}
+
+
 .list-items .mCSB_scrollTools{
   left: 260px;
 }
@@ -324,29 +340,122 @@ button{
    SIMPLE THEMES - NO ANIMATIONS
    ============================================ */
 
-/* SUMMER THEME */
+/* SUMMER THEME - ARTISTIC PASTEL GLASS */
+/* SUMMER THEME - ARTISTIC PASTEL GLASS */
 body[data-theme="summer"] {
-  background: linear-gradient(135deg, #87CEEB, #00BFFF);
+  /* Pink/Mint/White Wavy Gradient based on new reference */
+  background: 
+    radial-gradient(at 20% 20%, #F5C0C0 0%, transparent 50%), /* Pink */
+    radial-gradient(at 80% 20%, #A0EACD 0%, transparent 50%), /* Mint */
+    radial-gradient(at 20% 80%, #F8D5D5 0%, transparent 50%), /* Light Pink */
+    radial-gradient(at 80% 80%, #B5EAD7 0%, transparent 50%), /* Light Mint */
+    linear-gradient(135deg, #ffffff 0%, #FDF2F2 100%); /* White Base */
+  background-attachment: fixed;
+  background-size: 150% 150%;
+  animation: artGradient 15s ease infinite alternate;
+  font-family: 'Segoe UI', 'Helvetica Neue', 'Arial', sans-serif; /* Standard, Beautiful, Readable */
+  color: #5D4037;
+}
+
+@keyframes artGradient {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
+}
+
+/* Custom Scrollbar for Summer */
+body[data-theme="summer"] ::-webkit-scrollbar {
+  width: 8px;
+}
+body[data-theme="summer"] ::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.3);
+}
+body[data-theme="summer"] ::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #FFC3A0, #FFAFBD); /* Peach to Pink */
+  border-radius: 10px;
 }
 
 body[data-theme="summer"] fieldset {
-  background: rgba(255,255,255,0.95) !important;
-  border: 2px solid #00BFFF !important;
-  border-radius: 12px !important;
+  /* Intense Smooth Glass */
+  background: rgba(255, 255, 255, 0.25) !important; /* More transparent to show blur */
+  border: 1.5px solid rgba(255, 255, 255, 0.9) !important; /* Sharper border */
+  border-top: 1.5px solid rgba(255, 255, 255, 1) !important; /* Highlight top */
+  border-bottom: 1.5px solid rgba(255, 255, 255, 0.4) !important; /* Shadow bottom */
+  border-radius: 20px !important;
+  box-shadow: 
+    0 8px 32px 0 rgba(31, 38, 135, 0.15),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.2) !important;
+  backdrop-filter: blur(25px) !important; /* Intense Blur */
+  -webkit-backdrop-filter: blur(25px) !important;
 }
 
 body[data-theme="summer"] legend {
-  color: #006994 !important;
+  /* Gradient Text matching the palette */
+  background: linear-gradient(to right, #7F7FD5, #86A8E7, #91EAE4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800 !important;
+  font-size: 1.5em !important;
+  text-shadow: none; /* Removed shadow for cleaner gradient text */
 }
 
 body[data-theme="summer"] button {
-  background: #00BFFF !important;
-  border: 1px solid #0099CC !important;
+  background: linear-gradient(135deg, #FF9A9E 0%, #FECFEF 100%) !important;
+  border: none !important;
   color: white !important;
+  border-radius: 25px;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(255, 154, 158, 0.4);
+  transition: all 0.2s ease;
+  text-shadow: 0 1px 1px rgba(0,0,0,0.1);
+}
+
+body[data-theme="summer"] button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 154, 158, 0.5);
+  filter: brightness(1.05);
 }
 
 body[data-theme="summer"] .btn-success {
-  background: #20B2AA !important;
+  background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%) !important; /* Mint to Blue */
+  box-shadow: 0 4px 15px rgba(132, 250, 176, 0.4);
+}
+
+/* Summer Theme Item Overrides */
+body[data-theme="summer"] .scraped-item {
+  background: rgba(255, 255, 255, 0.5); /* Liquid glass transparency */
+  border: 1.5px solid rgba(255, 255, 255, 0.85);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+body[data-theme="summer"] .scraped-item:hover {
+  background: rgba(255, 255, 255, 0.7);
+  border-color: #fff;
+  box-shadow: 0 8px 35px rgba(0, 0, 0, 0.12);
+}
+
+body[data-theme="summer"] .scraped-item-details {
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px dashed #A1C4FD; /* Soft Blue Dashes */
+  border-radius: 12px;
+}
+
+body[data-theme="summer"] .scraped-item-description {
+  background: rgba(240, 248, 255, 0.5) !important; /* AliceBlue tint */
+  border-left: 4px solid #FFB7B2; /* Pastel Red accent */
+  border-radius: 0 10px 10px 0;
+  color: #666;
+}
+
+body[data-theme="summer"] .scraped-item-title {
+  color: #555;
+  font-weight: 700;
+}
+
+body[data-theme="summer"] .scraped-item-title {
+  color: #6a6a6a;
 }
 
 /* AUTUMN THEME */
