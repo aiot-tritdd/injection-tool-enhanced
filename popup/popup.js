@@ -358,12 +358,14 @@ function renderScrapedItems(items) {
     html += '  </div>';
 
     // Description
+    html += '  <div class="scraped-item-description" style="margin: 8px 0; padding: 8px; background: #f8f9fa; border-radius: 4px; font-size: 12px; line-height: 1.4; color: #495057;">';
     if(item.description && item.description.trim()) {
-      html += '  <div style="margin: 8px 0; padding: 8px; background: #f8f9fa; border-radius: 4px; font-size: 12px; line-height: 1.4; color: #495057;">';
-      html += '    ' + item.description.substring(0, 150);
+      html += item.description.substring(0, 150);
       if(item.description.length > 150) html += '...';
-      html += '  </div>';
+    } else {
+      html += '<span style="color: #adb5bd; font-style: italic;">Empty</span>';
     }
+    html += '  </div>';
 
     // Details Grid
     html += '  <div class="scraped-item-details">';
@@ -378,13 +380,16 @@ function renderScrapedItems(items) {
     }
 
     // Stock status
+    let stockText;
     if(item.has_stock !== undefined) {
-      const stockText = item.has_stock ? '<span style="color: #28a745;">✓ In Stock</span>' : '<span style="color: #dc3545;">✗ Out of Stock</span>';
-      html += '      <div class="scraped-item-details-row"><strong>Stock:</strong> ' + stockText + '</div>';
+      stockText = item.has_stock ? '<span class="badge badge-success">In Stock</span>' : '<span class="badge badge-danger">Out of Stock</span>';
+    } else {
+      stockText = '<span class="badge badge-warning">Undefined</span>';
     }
+    html += '      <div class="scraped-item-details-row"><strong>Stock:</strong> ' + stockText + '</div>';
     if(item.is_limited !== undefined) {
       const limitedText = item.is_limited ? '<span style="color: #dc3545;">⚠ Yes</span>' : 'No';
-      html += '      <div class="scraped-item-details-row"><strong>Limited:</strong> ' + limitedText + '</div>';
+      html += '      <div class="scraped-item-details-row"><strong>Is limited:</strong> ' + limitedText + '</div>';
     }
 
     // Quantity info
@@ -400,19 +405,21 @@ function renderScrapedItems(items) {
       html += '      <div class="scraped-item-details-row"><strong>Code:</strong> ' + item.code + '</div>';
     }
     if(item.service_type) {
-      html += '      <div class="scraped-item-details-row"><strong>Service:</strong> ' + item.service_type + '</div>';
+      html += '      <div class="scraped-item-details-row"><strong>Service Type:</strong> ' + item.service_type + '</div>';
     }
 
     // Other fields
     if(item.has_option_stock !== undefined) {
-      html += '      <div class="scraped-item-details-row"><strong>Has Options:</strong> ' + (item.has_option_stock ? 'Yes' : 'No') + '</div>';
+      html += '      <div class="scraped-item-details-row"><strong>Has Option Stock:</strong> ' + (item.has_option_stock ? 'Yes' : 'No') + '</div>';
     }
     if(item.unavailable !== undefined) {
       html += '      <div class="scraped-item-details-row"><strong>Available:</strong> ' + (item.unavailable === "0" ? 'Yes' : 'No') + '</div>';
     }
+    let categoryText = '<span style="color: #adb5bd; font-style: italic;">None</span>';
     if(item.category_ids && item.category_ids.length > 0) {
-      html += '      <div class="scraped-item-details-row" style="grid-column: 1 / -1;"><strong>Categories:</strong> ' + item.category_ids.join(', ') + '</div>';
+      categoryText = item.category_ids.join(', ');
     }
+    html += '      <div class="scraped-item-details-row" style="grid-column: 1 / -1;"><strong>Categories:  </strong> ' + categoryText + '</div>';
 
     // Image link (full width)
     if(item.image) {
@@ -438,6 +445,12 @@ function renderScrapedItems(items) {
 
       html += '      </div>';
       html += '    </div>';
+    } else {
+        html += '    <div class="variations-section" style="margin-top: 8px; padding-top: 8px; border-top: 1px solid #e9ecef;">';
+        html += '      <div style="padding: 6px 8px; background: #f8f9fa; border-radius: 4px; color: #adb5bd; font-style: italic; font-size: 13px;">';
+        html += '        No Variations';
+        html += '      </div>';
+        html += '    </div>';
     }
 
     // URL (full width at bottom)

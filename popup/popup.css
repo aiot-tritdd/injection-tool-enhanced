@@ -1,6 +1,6 @@
 body {
-  width: 540px;
-  max-height: 600px;
+  width: 750px;
+  max-height: 800px;
   overflow-y: auto;
   margin: 0;
   padding: 0;
@@ -447,4 +447,91 @@ body[data-theme="christmas"] button {
 
 body[data-theme="christmas"] .btn-success {
   background: #228B22 !important;
+}
+
+/* ============================================
+   ENHANCED DETAILS & "FUN" STYLES
+   ============================================ */
+
+/* Badges for status */
+.badge {
+  display: inline-block;
+  padding: 0.25em 0.6em;
+  font-size: 85%;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 10px;
+  color: #fff;
+}
+
+.badge-success {
+  background-color: #28a745;
+  box-shadow: 0 2px 4px rgba(40, 167, 69, 0.3);
+}
+
+.badge-danger {
+  background-color: #dc3545;
+  box-shadow: 0 2px 4px rgba(220, 53, 69, 0.3);
+}
+
+.badge-warning {
+  background-color: #ffc107;
+  color: #212529;
+  box-shadow: 0 2px 4px rgba(255, 193, 7, 0.3);
+}
+
+/* Item Improvements */
+.scraped-item {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid #e9ecef;
+}
+
+.scraped-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  border-color: #ced4da;
+}
+
+.scraped-item-details {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 10px;
+  margin-top: 10px;
+  border: 1px dashed #dee2e6;
+}
+
+.scraped-item-details-row {
+  display: flex;
+  align-items: center;
+  padding: 2px 0;
+}
+
+.scraped-item-details-row strong {
+  color: #6c757d;
+  font-size: 0.9em;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-right: 8px;
+}
+
+/* Description Box */
+.scraped-item-description {
+  position: relative;
+  background: #f1f3f5 !important; /* Overriding inline style potentially, or just ensuring */
+  border-left: 3px solid #ced4da;
+}
+
+/* Empty State Styling */
+.scraped-item-description span[style*="italic"] {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.scraped-item-description span[style*="italic"]::before {
+  content: '📝';
+  font-style: normal;
 }
