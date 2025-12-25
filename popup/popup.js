@@ -220,8 +220,7 @@ const themeIcons = {
   summer: '☀️',
   autumn: '🍂',
   winter: '❄️',
-  spring: '🌸',
-  christmas: '🎄'
+  spring: '🌸'
 };
 
 function loadTheme(themeName) {

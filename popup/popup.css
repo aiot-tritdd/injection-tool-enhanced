@@ -340,223 +340,511 @@ button{
    SIMPLE THEMES - NO ANIMATIONS
    ============================================ */
 
-/* SUMMER THEME - ARTISTIC PASTEL GLASS */
-/* SUMMER THEME - ARTISTIC PASTEL GLASS */
+/* SUMMER THEME - DREAMY CLOUDS & LIQUID GLASS */
 body[data-theme="summer"] {
-  /* Pink/Mint/White Wavy Gradient based on new reference */
+  /* Soft Cloud Gradient: Ultra-soft pastels */
   background: 
-    radial-gradient(at 20% 20%, #F5C0C0 0%, transparent 50%), /* Pink */
-    radial-gradient(at 80% 20%, #A0EACD 0%, transparent 50%), /* Mint */
-    radial-gradient(at 20% 80%, #F8D5D5 0%, transparent 50%), /* Light Pink */
-    radial-gradient(at 80% 80%, #B5EAD7 0%, transparent 50%), /* Light Mint */
-    linear-gradient(135deg, #ffffff 0%, #FDF2F2 100%); /* White Base */
+    radial-gradient(at 10% 20%, rgba(255, 222, 233, 0.8) 0%, transparent 40%),
+    radial-gradient(at 90% 20%, rgba(181, 255, 252, 0.7) 0%, transparent 40%),
+    radial-gradient(at 50% 50%, rgba(255, 240, 245, 0.6) 0%, transparent 50%),
+    radial-gradient(at 30% 80%, rgba(245, 192, 192, 0.5) 0%, transparent 40%),
+    radial-gradient(at 70% 80%, rgba(160, 234, 205, 0.5) 0%, transparent 40%),
+    linear-gradient(180deg, #ffffff 0%, #FFF5F8 100%);
   background-attachment: fixed;
-  background-size: 150% 150%;
-  animation: artGradient 15s ease infinite alternate;
-  font-family: 'Segoe UI', 'Helvetica Neue', 'Arial', sans-serif; /* Standard, Beautiful, Readable */
+  font-family: 'Segoe UI', 'Helvetica Neue', 'Arial', sans-serif;
   color: #5D4037;
 }
 
-@keyframes artGradient {
-  0% { background-position: 0% 0%; }
-  100% { background-position: 100% 100%; }
-}
-
-/* Custom Scrollbar for Summer */
+/* Dreamy Scrollbar */
 body[data-theme="summer"] ::-webkit-scrollbar {
   width: 8px;
 }
 body[data-theme="summer"] ::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.2);
 }
 body[data-theme="summer"] ::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, #FFC3A0, #FFAFBD); /* Peach to Pink */
+  background: linear-gradient(to bottom, rgba(255, 192, 192, 0.6), rgba(181, 255, 252, 0.6));
   border-radius: 10px;
+  box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.5);
 }
 
 body[data-theme="summer"] fieldset {
-  /* Intense Smooth Glass */
-  background: rgba(255, 255, 255, 0.25) !important; /* More transparent to show blur */
-  border: 1.5px solid rgba(255, 255, 255, 0.9) !important; /* Sharper border */
-  border-top: 1.5px solid rgba(255, 255, 255, 1) !important; /* Highlight top */
-  border-bottom: 1.5px solid rgba(255, 255, 255, 0.4) !important; /* Shadow bottom */
-  border-radius: 20px !important;
+  /* Liquid Multi-Layer Glass */
+  background: 
+    linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 240, 245, 0.2) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.8) !important;
+  border-top: 1.5px solid rgba(255, 255, 255, 1) !important;
+  border-bottom: 1px solid rgba(255, 192, 203, 0.3) !important;
+  border-radius: 24px !important;
   box-shadow: 
-    0 8px 32px 0 rgba(31, 38, 135, 0.15),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.2) !important;
-  backdrop-filter: blur(25px) !important; /* Intense Blur */
-  -webkit-backdrop-filter: blur(25px) !important;
+    0 8px 32px 0 rgba(100, 100, 150, 0.1),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.8),
+    inset 0 -1px 0 0 rgba(255, 192, 203, 0.2),
+    0 0 60px rgba(255, 192, 203, 0.1) !important;
+  backdrop-filter: blur(40px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(40px) saturate(180%) !important;
 }
 
 body[data-theme="summer"] legend {
-  /* Gradient Text matching the palette */
-  background: linear-gradient(to right, #7F7FD5, #86A8E7, #91EAE4);
+  background: linear-gradient(120deg, #FFB7CE, #B5E7FF, #FFD6E8);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: 800 !important;
   font-size: 1.5em !important;
-  text-shadow: none; /* Removed shadow for cleaner gradient text */
+  filter: drop-shadow(0 2px 8px rgba(255, 183, 206, 0.3));
 }
 
 body[data-theme="summer"] button {
-  background: linear-gradient(135deg, #FF9A9E 0%, #FECFEF 100%) !important;
-  border: none !important;
+  background: linear-gradient(135deg, rgba(255, 154, 158, 0.7) 0%, rgba(254, 207, 239, 0.7) 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.5) !important;
   color: white !important;
   border-radius: 25px;
   font-weight: 600;
-  box-shadow: 0 4px 15px rgba(255, 154, 158, 0.4);
-  transition: all 0.2s ease;
-  text-shadow: 0 1px 1px rgba(0,0,0,0.1);
+  box-shadow: 
+    0 4px 15px rgba(255, 154, 158, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.1);
 }
 
 body[data-theme="summer"] button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(255, 154, 158, 0.5);
-  filter: brightness(1.05);
+  box-shadow: 
+    0 6px 20px rgba(255, 154, 158, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8),
+    0 0 20px rgba(255, 183, 206, 0.3);
+  filter: brightness(1.1);
 }
 
 body[data-theme="summer"] .btn-success {
-  background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%) !important; /* Mint to Blue */
-  box-shadow: 0 4px 15px rgba(132, 250, 176, 0.4);
+  background: linear-gradient(135deg, rgba(132, 250, 176, 0.7) 0%, rgba(143, 211, 244, 0.7) 100%) !important;
+  box-shadow: 0 4px 15px rgba(132, 250, 176, 0.3);
 }
 
-/* Summer Theme Item Overrides */
+/* Summer Items - Floating Cloud Cards */
 body[data-theme="summer"] .scraped-item {
-  background: rgba(255, 255, 255, 0.5); /* Liquid glass transparency */
-  border: 1.5px solid rgba(255, 255, 255, 0.85);
-  border-radius: 16px;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 240, 250, 0.65) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 20px;
+  box-shadow: 
+    0 8px 32px 0 rgba(150, 150, 200, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7),
+    0 0 40px rgba(255, 192, 203, 0.1);
+  backdrop-filter: blur(35px) saturate(150%);
+  -webkit-backdrop-filter: blur(35px) saturate(150%);
 }
 
 body[data-theme="summer"] .scraped-item:hover {
-  background: rgba(255, 255, 255, 0.7);
-  border-color: #fff;
-  box-shadow: 0 8px 35px rgba(0, 0, 0, 0.12);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 240, 250, 0.6) 100%);
+  border-color: rgba(255, 192, 203, 0.8);
+  box-shadow: 
+    0 12px 40px rgba(150, 150, 200, 0.15),
+    0 0 60px rgba(255, 192, 203, 0.15);
+  transform: translateY(-2px);
 }
 
 body[data-theme="summer"] .scraped-item-details {
   background: rgba(255, 255, 255, 0.5);
-  border: 1px dashed #A1C4FD; /* Soft Blue Dashes */
-  border-radius: 12px;
+  border: 1px dashed rgba(181, 255, 252, 0.5);
+  border-radius: 16px;
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.2);
 }
 
 body[data-theme="summer"] .scraped-item-description {
-  background: rgba(240, 248, 255, 0.5) !important; /* AliceBlue tint */
-  border-left: 4px solid #FFB7B2; /* Pastel Red accent */
-  border-radius: 0 10px 10px 0;
+  background: rgba(255, 240, 245, 0.65) !important;
+  border-left: 4px solid rgba(255, 183, 178, 0.6);
+  border-radius: 0 12px 12px 0;
   color: #666;
+  box-shadow: inset 0 0 15px rgba(255, 192, 203, 0.1);
 }
 
 body[data-theme="summer"] .scraped-item-title {
   color: #555;
   font-weight: 700;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
 }
 
-body[data-theme="summer"] .scraped-item-title {
-  color: #6a6a6a;
-}
-
-/* AUTUMN THEME */
+/* AUTUMN THEME - DREAMY FALLING LEAVES & LIQUID GLASS */
 body[data-theme="autumn"] {
-  background: linear-gradient(135deg, #D2691E, #8B4513);
+  /* Flowing Autumn Leaves: Warm dreamy gradient */
+  background: 
+    radial-gradient(at 15% 10%, rgba(117, 106, 182, 0.6) 0%, transparent 45%),
+    radial-gradient(at 85% 15%, rgba(219, 150, 140, 0.5) 0%, transparent 45%),
+    radial-gradient(at 20% 60%, rgba(230, 183, 126, 0.6) 0%, transparent 45%),
+    radial-gradient(at 80% 85%, rgba(172, 118, 105, 0.5) 0%, transparent 45%),
+    radial-gradient(at 50% 50%, rgba(237, 227, 199, 0.4) 0%, transparent 60%),
+    linear-gradient(180deg, #FFF5E6 0%, #F5EBD7 100%);
+  background-attachment: fixed;
+  font-family: 'Segoe UI', 'Helvetica Neue', 'Arial', sans-serif;
+  color: #5D4037;
+}
+
+/* Autumn Scrollbar */
+body[data-theme="autumn"] ::-webkit-scrollbar {
+  width: 8px;
+}
+body[data-theme="autumn"] ::-webkit-scrollbar-track {
+  background: rgba(237, 227, 199, 0.2);
+}
+body[data-theme="autumn"] ::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, rgba(219, 150, 140, 0.7), rgba(230, 183, 126, 0.7));
+  border-radius: 10px;
+  box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.4);
 }
 
 body[data-theme="autumn"] fieldset {
-  background: rgba(255,250,240,0.95) !important;
-  border: 2px solid #A0522D !important;
-  border-radius: 12px !important;
+  /* Warm Liquid Glass */
+  background: 
+    linear-gradient(135deg, rgba(255, 250, 240, 0.15) 0%, rgba(237, 227, 199, 0.25) 100%);
+  border: 1px solid rgba(230, 183, 126, 0.7) !important;
+  border-top: 1.5px solid rgba(237, 227, 199, 1) !important;
+  border-bottom: 1px solid rgba(172, 118, 105, 0.4) !important;
+  border-radius: 24px !important;
+  box-shadow: 
+    0 8px 32px 0 rgba(117, 106, 182, 0.15),
+    inset 0 1px 0 0 rgba(255, 250, 240, 0.8),
+    inset 0 -1px 0 0 rgba(219, 150, 140, 0.2),
+    0 0 50px rgba(230, 183, 126, 0.08) !important;
+  backdrop-filter: blur(40px) saturate(160%) !important;
+  -webkit-backdrop-filter: blur(40px) saturate(160%) !important;
 }
 
 body[data-theme="autumn"] legend {
-  color: #5D2E00 !important;
+  background: linear-gradient(120deg, #DB968C, #E6B77E, #AC7669);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800 !important;
+  font-size: 1.5em !important;
+  filter: drop-shadow(0 2px 8px rgba(219, 150, 140, 0.3));
 }
 
 body[data-theme="autumn"] button {
-  background: #CD853F !important;
-  border: 1px solid #8B4513 !important;
+  background: linear-gradient(135deg, rgba(219, 150, 140, 0.75) 0%, rgba(230, 183, 126, 0.75) 100%) !important;
+  border: 1px solid rgba(237, 227, 199, 0.6) !important;
   color: white !important;
+  border-radius: 25px;
+  font-weight: 600;
+  box-shadow: 
+    0 4px 15px rgba(219, 150, 140, 0.3),
+    inset 0 1px 0 rgba(255, 250, 240, 0.5);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+body[data-theme="autumn"] button:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 6px 20px rgba(219, 150, 140, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7),
+    0 0 20px rgba(230, 183, 126, 0.3);
+  filter: brightness(1.1);
 }
 
 body[data-theme="autumn"] .btn-success {
-  background: #DAA520 !important;
+  background: linear-gradient(135deg, rgba(230, 183, 126, 0.75) 0%, rgba(237, 227, 199, 0.75) 100%) !important;
+  box-shadow: 0 4px 15px rgba(230, 183, 126, 0.3);
+  color: white !important;
 }
 
-/* WINTER THEME */
+/* Autumn Items - Flowing Leaves */
+body[data-theme="autumn"] .scraped-item {
+  background: linear-gradient(135deg, rgba(237, 227, 199, 0.6) 0%, rgba(255, 250, 240, 0.65) 100%);
+  border: 1px solid rgba(219, 150, 140, 0.7);
+  border-radius: 20px;
+  box-shadow: 
+    0 8px 32px 0 rgba(117, 106, 182, 0.14),
+    inset 0 1px 0 rgba(255, 250, 240, 0.7),
+    0 0 40px rgba(230, 183, 126, 0.08);
+  backdrop-filter: blur(35px) saturate(140%);
+  -webkit-backdrop-filter: blur(35px) saturate(140%);
+}
+
+body[data-theme="autumn"] .scraped-item:hover {
+  background: linear-gradient(135deg, rgba(237, 227, 199, 0.55) 0%, rgba(255, 250, 240, 0.6) 100%);
+  border-color: rgba(219, 150, 140, 0.8);
+  box-shadow: 
+    0 12px 40px rgba(117, 106, 182, 0.18),
+    0 0 60px rgba(230, 183, 126, 0.12);
+  transform: translateY(-2px);
+}
+
+body[data-theme="autumn"] .scraped-item-details {
+  background: rgba(237, 227, 199, 0.55);
+  border: 1px dashed rgba(230, 183, 126, 0.5);
+  border-radius: 16px;
+  box-shadow: inset 0 0 20px rgba(255, 250, 240, 0.2);
+}
+
+body[data-theme="autumn"] .scraped-item-description {
+  background: rgba(237, 227, 199, 0.7) !important;
+  border-left: 4px solid rgba(172, 118, 105, 0.6);
+  border-radius: 0 12px 12px 0;
+  color: #5D4037;
+  box-shadow: inset 0 0 15px rgba(219, 150, 140, 0.1);
+}
+
+body[data-theme="autumn"] .scraped-item-title {
+  color: #5D2E00;
+  font-weight: 700;
+  text-shadow: 0 1px 2px rgba(255, 250, 240, 0.8);
+}
+
+/* WINTER THEME - DREAMY SNOW & LIQUID GLASS */
 body[data-theme="winter"] {
-  background: linear-gradient(135deg, #B0E0E6, #6495ED);
+  /* Serene Snowy Gradient: Cool dreamy blues and whites */
+  background: 
+    radial-gradient(at 20% 15%, rgba(255, 228, 225, 0.7) 0%, transparent 40%),
+    radial-gradient(at 80% 20%, rgba(230, 230, 250, 0.6) 0%, transparent 40%),
+    radial-gradient(at 30% 70%, rgba(204, 204, 255, 0.5) 0%, transparent 45%),
+    radial-gradient(at 70% 80%, rgba(179, 217, 255, 0.6) 0%, transparent 40%),
+    radial-gradient(at 50% 50%, rgba(248, 248, 255, 0.5) 0%, transparent 55%),
+    linear-gradient(180deg, #FDFEFF 0%, #F5F8FF 100%);
+  background-attachment: fixed;
+  font-family: 'Segoe UI', 'Helvetica Neue', 'Arial', sans-serif;
+  color: #4A5568;
+}
+
+/* Winter Scrollbar */
+body[data-theme="winter"] ::-webkit-scrollbar {
+  width: 8px;
+}
+body[data-theme="winter"] ::-webkit-scrollbar-track {
+  background: rgba(230, 230, 250, 0.2);
+}
+body[data-theme="winter"] ::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, rgba(204, 204, 255, 0.7), rgba(179, 217, 255, 0.7));
+  border-radius: 10px;
+  box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.6);
 }
 
 body[data-theme="winter"] fieldset {
-  background: rgba(255,255,255,0.9) !important;
-  border: 2px solid #87CEEB !important;
-  border-radius: 12px !important;
+  /* Icy Liquid Glass */
+  background: 
+    linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(240, 248, 255, 0.25) 100%);
+  border: 1px solid rgba(204, 204, 255, 0.6) !important;
+  border-top: 1.5px solid rgba(248, 248, 255, 1) !important;
+  border-bottom: 1px solid rgba(179, 217, 255, 0.4) !important;
+  border-radius: 24px !important;
+  box-shadow: 
+    0 8px 32px 0 rgba(150, 150, 230, 0.12),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.9),
+    inset 0 -1px 0 0 rgba(204, 204, 255, 0.2),
+    0 0 50px rgba(179, 217, 255, 0.08) !important;
+  backdrop-filter: blur(40px) saturate(170%) !important;
+  -webkit-backdrop-filter: blur(40px) saturate(170%) !important;
 }
 
 body[data-theme="winter"] legend {
-  color: #1E3A8A !important;
+  background: linear-gradient(120deg, #CCCCFF, #E6E6FA, #B3D9FF);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800 !important;
+  font-size: 1.5em !important;
+  filter: drop-shadow(0 2px 8px rgba(204, 204, 255, 0.3));
 }
 
 body[data-theme="winter"] button {
-  background: #6495ED !important;
-  border: 1px solid #4169E1 !important;
+  background: linear-gradient(135deg, rgba(204, 204, 255, 0.7) 0%, rgba(179, 217, 255, 0.7) 100%) !important;
+  border: 1px solid rgba(240, 248, 255, 0.6) !important;
   color: white !important;
+  border-radius: 25px;
+  font-weight: 600;
+  box-shadow: 
+    0 4px 15px rgba(204, 204, 255, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+body[data-theme="winter"] button:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 6px 20px rgba(204, 204, 255, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8),
+    0 0 20px rgba(179, 217, 255, 0.3);
+  filter: brightness(1.1);
 }
 
 body[data-theme="winter"] .btn-success {
-  background: #4682B4 !important;
+  background: linear-gradient(135deg, rgba(230, 230, 250, 0.75) 0%, rgba(255, 228, 225, 0.75) 100%) !important;
+  box-shadow: 0 4px 15px rgba(230, 230, 250, 0.3);
+  color: white !important;
 }
 
-/* SPRING THEME */
+/* Winter Items - Floating Snowflakes */
+body[data-theme="winter"] .scraped-item {
+  background: linear-gradient(135deg, rgba(255, 248, 231, 0.6) 0%, rgba(248, 248, 255, 0.65) 100%);
+  border: 1px solid rgba(204, 204, 255, 0.7);
+  border-radius: 20px;
+  box-shadow: 
+    0 8px 32px 0 rgba(150, 150, 230, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.75),
+    0 0 40px rgba(179, 217, 255, 0.08);
+  backdrop-filter: blur(35px) saturate(150%);
+  -webkit-backdrop-filter: blur(35px) saturate(150%);
+}
+
+body[data-theme="winter"] .scraped-item:hover {
+  background: linear-gradient(135deg, rgba(255, 248, 231, 0.55) 0%, rgba(248, 248, 255, 0.6) 100%);
+  border-color: rgba(230, 230, 250, 0.8);
+  box-shadow: 
+    0 12px 40px rgba(150, 150, 230, 0.15),
+    0 0 60px rgba(179, 217, 255, 0.12);
+  transform: translateY(-2px);
+}
+
+body[data-theme="winter"] .scraped-item-details {
+  background: rgba(248, 248, 255, 0.55);
+  border: 1px dashed rgba(204, 204, 255, 0.5);
+  border-radius: 16px;
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.25);
+}
+
+body[data-theme="winter"] .scraped-item-description {
+  background: rgba(255, 228, 225, 0.7) !important;
+  border-left: 4px solid rgba(179, 217, 255, 0.6);
+  border-radius: 0 12px 12px 0;
+  color: #4A5568;
+  box-shadow: inset 0 0 15px rgba(204, 204, 255, 0.1);
+}
+
+body[data-theme="winter"] .scraped-item-title {
+  color: #2D3748;
+  font-weight: 700;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);
+}
+
+/* SPRING THEME - DREAMY BLOOMING FLOWERS & LIQUID GLASS */
 body[data-theme="spring"] {
-  background: linear-gradient(135deg, #98FB98, #32CD32);
+  /* Fresh Blooming Garden: Soft flower colors */
+  background: 
+    radial-gradient(at 25% 15%, rgba(200, 206, 238, 0.6) 0%, transparent 40%),
+    radial-gradient(at 75% 20%, rgba(203, 211, 173, 0.5) 0%, transparent 40%),
+    radial-gradient(at 30% 65%, rgba(255, 198, 151, 0.6) 0%, transparent 40%),
+    radial-gradient(at 70% 80%, rgba(249, 197, 199, 0.5) 0%, transparent 40%),
+    radial-gradient(at 50% 45%, rgba(221, 195, 227, 0.4) 0%, transparent 55%),
+    linear-gradient(180deg, #FFFEF8 0%, #FFF9F0 100%);
+  background-attachment: fixed;
+  font-family: 'Segoe UI', 'Helvetica Neue', 'Arial', sans-serif;
+  color: #4A5568;
+}
+
+/* Spring Scrollbar */
+body[data-theme="spring"] ::-webkit-scrollbar {
+  width: 8px;
+}
+body[data-theme="spring"] ::-webkit-scrollbar-track {
+  background: rgba(247, 229, 183, 0.2);
+}
+body[data-theme="spring"] ::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, rgba(203, 211, 173, 0.7), rgba(255, 198, 151, 0.7));
+  border-radius: 10px;
+  box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.5);
 }
 
 body[data-theme="spring"] fieldset {
-  background: rgba(255,255,255,0.95) !important;
-  border: 2px solid #228B22 !important;
-  border-radius: 12px !important;
+  /* Floral Liquid Glass */
+  background: 
+    linear-gradient(135deg, rgba(255, 255, 255, 0.18) 0%, rgba(247, 229, 183, 0.22) 100%);
+  border: 1px solid rgba(203, 211, 173, 0.7) !important;
+  border-top: 1.5px solid rgba(255, 255, 255, 1) !important;
+  border-bottom: 1px solid rgba(249, 197, 199, 0.4) !important;
+  border-radius: 24px !important;
+  box-shadow: 
+    0 8px 32px 0 rgba(200, 206, 238, 0.12),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.85),
+    inset 0 -1px 0 0 rgba(203, 211, 173, 0.2),
+    0 0 50px rgba(203, 211, 173, 0.08) !important;
+  backdrop-filter: blur(40px) saturate(165%) !important;
+  -webkit-backdrop-filter: blur(40px) saturate(165%) !important;
 }
 
 body[data-theme="spring"] legend {
-  color: #0B6623 !important;
+  background: linear-gradient(120deg, #C8CEEE, #CBD3AD, #FFC697, #F9C5C7);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800 !important;
+  font-size: 1.5em !important;
+  filter: drop-shadow(0 2px 8px rgba(203, 211, 173, 0.3));
 }
 
 body[data-theme="spring"] button {
-  background: #32CD32 !important;
-  border: 1px solid #228B22 !important;
+  background: linear-gradient(135deg, rgba(203, 211, 173, 0.75) 0%, rgba(255, 198, 151, 0.75) 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.6) !important;
   color: white !important;
+  border-radius: 25px;
+  font-weight: 600;
+  box-shadow: 
+    0 4px 15px rgba(203, 211, 173, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+body[data-theme="spring"] button:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 6px 20px rgba(203, 211, 173, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8),
+    0 0 20px rgba(203, 211, 173, 0.3);
+  filter: brightness(1.1);
 }
 
 body[data-theme="spring"] .btn-success {
-  background: #3CB371 !important;
-}
-
-/* CHRISTMAS THEME */
-body[data-theme="christmas"] {
-  background: linear-gradient(135deg, #8B0000, #006400);
-}
-
-body[data-theme="christmas"] fieldset {
-  background: rgba(255,250,250,0.95) !important;
-  border: 2px solid #DC143C !important;
-  border-radius: 12px !important;
-}
-
-body[data-theme="christmas"] legend {
-  color: #8B0000 !important;
-}
-
-body[data-theme="christmas"] button {
-  background: #DC143C !important;
-  border: 1px solid #8B0000 !important;
+  background: linear-gradient(135deg, rgba(247, 229, 183, 0.75) 0%, rgba(249, 197, 199, 0.75) 100%) !important;
+  box-shadow: 0 4px 15px rgba(247, 229, 183, 0.3);
   color: white !important;
 }
 
-body[data-theme="christmas"] .btn-success {
-  background: #228B22 !important;
+/* Spring Items - Floating Petals */
+body[data-theme="spring"] .scraped-item {
+  background: linear-gradient(135deg, rgba(247, 229, 183, 0.6) 0%, rgba(255, 255, 255, 0.65) 100%);
+  border: 1px solid rgba(203, 211, 173, 0.7);
+  border-radius: 20px;
+  box-shadow: 
+    0 8px 32px 0 rgba(200, 206, 238, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7),
+    0 0 40px rgba(249, 197, 199, 0.08);
+  backdrop-filter: blur(35px) saturate(145%);
+  -webkit-backdrop-filter: blur(35px) saturate(145%);
 }
+
+body[data-theme="spring"] .scraped-item:hover {
+  background: linear-gradient(135deg, rgba(247, 229, 183, 0.55) 0%, rgba(255, 255, 255, 0.6) 100%);
+  border-color: rgba(203, 211, 173, 0.8);
+  box-shadow: 
+    0 12px 40px rgba(200, 206, 238, 0.15),
+    0 0 60px rgba(249, 197, 199, 0.12);
+  transform: translateY(-2px);
+}
+
+body[data-theme="spring"] .scraped-item-details {
+  background: rgba(247, 229, 183, 0.55);
+  border: 1px dashed rgba(255, 198, 151, 0.5);
+  border-radius: 16px;
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+body[data-theme="spring"] .scraped-item-description {
+  background: rgba(249, 197, 199, 0.7) !important;
+  border-left: 4px solid rgba(249, 197, 199, 0.7);
+  border-radius: 0 12px 12px 0;
+  color: #4A5568;
+  box-shadow: inset 0 0 15px rgba(203, 211, 173, 0.1);
+}
+
+body[data-theme="spring"] .scraped-item-title {
+  color: #2D3748;
+  font-weight: 700;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.85);
+}
+
+
 
 /* ============================================
    ENHANCED DETAILS & "FUN" STYLES
