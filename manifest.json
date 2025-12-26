@@ -43,8 +43,8 @@
     "rule_resources" : []
   },
     "icons": {
-    "16": "assets/icons/injection-16.png",
-    "32": "assets/icons/injection-32.png",
-    "128": "assets/icons/injection-128.png"
+    "16": "assets/icons/banana-16.png",
+    "32": "assets/icons/banana-32.png",
+    "128": "assets/icons/banana-128.png"
   }
 }
