@@ -166,7 +166,7 @@ button{
 }
 
 .scraped-items-list {
-  max-height: 400px;
+  max-height: 500px;
   overflow-y: auto;
 }
 
@@ -176,6 +176,7 @@ button{
   padding: 10px;
   margin-bottom: 10px;
   background: white;
+  overflow: hidden;
 }
 
 .scraped-item:hover {
@@ -226,10 +227,14 @@ button{
   padding-top: 8px;
   border-top: 1px solid #e9ecef;
   font-size: 12px;
+  overflow: hidden;
 }
 
 .scraped-item-details-row {
   margin-bottom: 4px;
+  overflow: hidden;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .scraped-item-details-row strong {
@@ -1058,12 +1063,28 @@ body[data-theme="spring"] .scraped-item-title {
   padding: 10px;
   margin-top: 10px;
   border: 1px dashed #dee2e6;
+  overflow: hidden;
 }
 
 .scraped-item-details-row {
   display: flex;
   align-items: center;
   padding: 2px 0;
+  min-width: 0;
+  overflow: hidden;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Grid container inside scraped-item-details */
+.scraped-item-details > div[style*="grid"] {
+  overflow: hidden;
+}
+
+.scraped-item-details > div[style*="grid"] > * {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .scraped-item-details-row strong {
