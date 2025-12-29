@@ -239,8 +239,10 @@ button{
 
 .scraped-item-details-row strong {
   display: inline-block;
-  width: 80px;
+  min-width: 80px;
   color: #495057;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .scraped-item-url {
@@ -1083,8 +1085,8 @@ body[data-theme="spring"] .scraped-item-title {
 
 .scraped-item-details > div[style*="grid"] > * {
   min-width: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  word-break: break-all;
+  overflow-wrap: break-word;
 }
 
 .scraped-item-details-row strong {
@@ -1093,6 +1095,9 @@ body[data-theme="spring"] .scraped-item-title {
   text-transform: uppercase;
   letter-spacing: 0.5px;
   margin-right: 8px;
+  min-width: 80px;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 /* Description Box */
